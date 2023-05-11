@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Wilson Hendricks",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ADTA 5410 Wilson Hendricks",
+    "section": "",
+    "text": "Post Estimation Diagnostics\n\n\n\n\n\n\n\nR\n\n\nRegression\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nWilson Hendricks\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMay 7, 2023\n\n\nWilson Hedendricks\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/my first post/index.html",
+    "href": "posts/my first post/index.html",
+    "title": "Post Estimation Diagnostics",
+    "section": "",
+    "text": "Hi Welcome to First Post"
+  },
+  {
+    "objectID": "posts/my first post/index.html#data",
+    "href": "posts/my first post/index.html#data",
+    "title": "Post Estimation Diagnostics",
+    "section": "Data",
+    "text": "Data\nWe will use North Carololina birth records for the year 2004. We want to look at the relation between the habits and practices of expectant mothers and the birth of their children. The dataset is a random sample from the original dataset.\nPredictors\n\nfage: father’s age in years.\nmage: mother’s age in years.\nmature: maturity status of mother.\nweeks: length of pregnancy in weeks.\npremie: whether the birth was classified as premature (premie) or full-term.\nvisits: number of hospital visits during pregnancy.\nmarital: whether mother is married or not married at birth.\ngained: weight gained by mother during pregnancy in pounds.\ngender: gender of the baby, female or male.\nhabit: status of the mother as a nonsmoker or a smoker.\nwhitemom: whether mother is white or not white."
+  },
+  {
+    "objectID": "posts/my first post/index.html#task-2",
+    "href": "posts/my first post/index.html#task-2",
+    "title": "Post Estimation Diagnostics",
+    "section": "Task 2:",
+    "text": "Task 2:\nIn this task, you will be using the train_data dataset to run a linear regression that takes ‘weight’ as the dependent variable and all the other columns as the predictor.\n\nYou will use the lm() function to estimate your linear model and name it as linearmodel.\nUse the predict() function to predict the ‘weight’ variable in the test_data dataset using linearmodel.\nStore the resulting predictions in a new object called predicted_weights.\nCalculate the mean squared prediction error in the test_data dataset by comparing the predicted ‘weight’ values with the actual ‘weight’ values. Store the resulting value in an object called MSPE_linear.\nPrint the value of MSPE_linear to the console using the print() function.\n\n\n# Fit a linear regression model using train_data\nlinearmodel <- lm(weight ~ fage + mage + mature + weeks + premie + visits + marital + gained + gender + habit + whitemom, data = train_data)\n\n#  Predict the 'weight' variable in the test_data dataset using linearmodel.\npredicted_weights <- predict(linearmodel, newdata = test_data)\n\n# Calculate MSPE in the test_data by comparing the predicted 'weight' values with the actual 'weight' values\nMSPE_linear <- mean((test_data$weight - predicted_weights)^2)\n\n# Print the value of MSPE_linear\nprint(MSPE_linear)\n\n[1] 1.073253"
+  },
+  {
+    "objectID": "posts/my first post/index.html#task-3",
+    "href": "posts/my first post/index.html#task-3",
+    "title": "Post Estimation Diagnostics",
+    "section": "Task 3:",
+    "text": "Task 3:\n\nUse the generalized additive model (GAM) function in the mgcv package to complete the same task. In other words, fit a GAM on the train_data using the gam() function. Use the s() function for each predictor. By doing so, you specify that each predictor variable is modeled using a smoothing spline. Save your R object as gam_model\nUse the predict() function to predict the ‘weight’ variable in the test_data dataset using gam_model. Store the resulting predictions in a new object called predicted_weights.\nCalculate the mean squared prediction error in the test_data dataset by comparing the predicted ‘weight’ values with the actual ‘weight’ values. Store the resulting value in an object called MSPE_gam.\n\nPrint the value of MSPE_gam to the console using the print() function.\n\n# Install and load the mgcv package\n\nlibrary(mgcv)\n\nLoading required package: nlme\n\n\n\nAttaching package: 'nlme'\n\n\nThe following object is masked from 'package:dplyr':\n\n    collapse\n\n\nThis is mgcv 1.8-42. For overview type 'help(\"mgcv-package\")'.\n\n# Fit a GAM using train_data\ngam_model <- gam(weight ~ s(fage) + s(mage) + factor(mature) + s(weeks) + factor(premie) + s(visits) + factor(marital) + s(gained) + factor(gender) + factor(habit) + factor(whitemom), data = train_data)\n\n# Predict the 'weight' variable in the test_data dataset using gam_model\npredicted_weights <- predict(gam_model, newdata = test_data)\n\n# Calculate the mean squared prediction error (MSPE)\nMSPE_gam <- mean((test_data$weight - predicted_weights)^2)\n\n\n# Print the MSPE values for both models\nprint(MSPE_linear)\n\n[1] 1.073253\n\nprint(MSPE_gam)\n\n[1] 1.047226\n\n#The MSPE_gam model performs better"
+  },
+  {
+    "objectID": "posts/my first post/index.html#task-4",
+    "href": "posts/my first post/index.html#task-4",
+    "title": "Post Estimation Diagnostics",
+    "section": "Task 4",
+    "text": "Task 4\n\nCompare the mean squared prediction error obtained from the linear regression model (linearmodel) in Task 2 and the generalized additive model (gam_model) in the previous task. You will use the MSPE_linear and MSPE_gam values to determine which model performs better in predicting the ‘weight’ variable in the test_data dataset.\n\n\n# Print the MSPE values for both models\nprint(MSPE_linear)\n\n[1] 1.073253\n\n#The MSPE_gam model performs better"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Hi this is the first post in a Quarto blog!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  }
+]

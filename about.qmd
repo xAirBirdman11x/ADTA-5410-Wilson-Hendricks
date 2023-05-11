@@ -1,0 +1,13 @@
+---
+title: "Wilson Hendricks"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+      - icon: github
+        href: https://github.com/xAirBirdman11x
+      - icon: linkedin
+        href: https://www.linkedin.com/in/wilson-hendricks-0094b5177
+---
+
+About this blog
